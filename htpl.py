@@ -13,10 +13,8 @@ def parse(*, ctx: dict = None, src: str = None, root: bs4.PageElement = None, rd
         ctx = dict()
 
     if src:
-        src = src.replace("\n", "")
+        src = src.replace("\n", "").replace("&lt;", "<").replace("&gt;", ">")
         root = bs4.BeautifulSoup(src, features="html.parser")
-
-    # print(root.name, type(root.name) is str)
 
     try:
         args = []
